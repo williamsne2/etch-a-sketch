@@ -1,0 +1,19 @@
+#container{
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    border: solid black 2px;
+}
+.controls{
+    display: inline-block;
+    margin: auto;
+    width: 70px;
+}
+body{
+    width: 100%;
+}
+.controls label{
+    text-align: right;
+    margin: 5px 0 0 0;
+    width: auto;
+}
