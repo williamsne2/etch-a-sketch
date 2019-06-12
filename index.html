@@ -11,7 +11,7 @@
             <label class="controls">Grid Size:</label>
             <input type="number" class="controls" id="gridSize" value="16" required min="1" max="10000">
             <label class="controls" name="colorPallate">Color:</label>
-            <select class="controls" name="colorPalatte" id="colorPalatte" onchange="changeColors()">
+            <select class="controls" name="colorPalatte" id="colorPalatte">
                 <option value="red">Red</option>
                 <option value="black">Black</option>
                 <option value="white">White</option>
@@ -21,7 +21,7 @@
             </select>
             <label class="controls" name="opacityRange">Opacity:</label>
             <input type="range" min="0" max="1" value="1" step="0.1" 
-                class="controls" name="opacityRange" id="opacityRange" onchange="changeColors()">
+                class="controls" name="opacityRange" id="opacityRange">
         </form>
         <button class="controls" id="clear">Reset Grid</button>
         <div id="container"></div>

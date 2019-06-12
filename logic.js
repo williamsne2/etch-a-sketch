@@ -10,6 +10,7 @@ function generateGrid(rows, cols){
             newDiv.id = `grid-${r+1}-${c+1}`;
             newDiv.style.gridRow = `${r+1} / ${r+2}`;
             newDiv.style.gridColumn = `${c+1} / ${c+2}`;
+            newDiv.style.opacity = 0.0;
             container.appendChild(newDiv);
         }
     }
@@ -17,10 +18,15 @@ function generateGrid(rows, cols){
 
 function createHoverEffect(color, opacity){
     const boxArray = document.querySelectorAll('.gridElement');
+
     boxArray.forEach((box) => {
         box.addEventListener("mouseover", (e) => {
-            e.target.style.backgroundColor = color;
-            e.target.style.opacity = opacity;
+            const dropdown = document.querySelector('#colorPalatte').value;
+            const opacity = document.querySelector('#opacityRange').value;
+            e.target.style.backgroundColor = dropdown;
+            console.log(parseFloat(e.target.style.opacity));
+            e.target.style.opacity = (parseFloat(e.target.style.opacity) + parseFloat(opacity)).toString();
+            
         });
     });
 }
@@ -30,12 +36,10 @@ function addClearButton(){
     const boxArray = document.querySelectorAll('.gridElement');
     btn.addEventListener('click', (e) => {
         boxArray.forEach((box) => {
-            //box.style.backgroundColor = "white";
             box.remove();
         });
         const inputBox = document.querySelector('#gridSize');
         let gridSize = parseInt(inputBox.value);
-        console.log(inputBox.value);
         if(inputBox.value != '')
             generateGrid(gridSize, gridSize);
         else
@@ -45,11 +49,11 @@ function addClearButton(){
     });
 }
 
-function changeColors() {
+/*function changeColors() {
     const dropdown = document.querySelector('#colorPalatte');
     const opacity = document.querySelector('#opacityRange');
     createHoverEffect(dropdown.value, opacity.value);
-}
+}*/
 const rows = 16;
 const cols = rows;
 generateGrid(rows, cols);
