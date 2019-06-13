@@ -39,12 +39,14 @@ function addClearButton(){
             box.remove();
         });
         const inputBox = document.querySelector('#gridSize');
+        const dropdown = document.querySelector('#colorPalatte').value;
+        const opacity = document.querySelector('#opacityRange').value;
         let gridSize = parseInt(inputBox.value);
         if(inputBox.value != '')
             generateGrid(gridSize, gridSize);
         else
             generateGrid(16, 16);
-        changeColors();
+        createHoverEffect(dropdown, opacity);
         addClearButton();
     });
 }
